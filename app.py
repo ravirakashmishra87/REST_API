@@ -3,6 +3,7 @@ from flask import Flask
 from flask_smorest import Api
 from resources.store import blp as StoreBlueprint
 from resources.item import blp as ItemBlueprint
+from resources.tag import blp as TagBlueprint
 
 from db import db
 import models
@@ -35,4 +36,5 @@ def create_app(db_url=None):
 
     api.register_blueprint(ItemBlueprint)
     api.register_blueprint(StoreBlueprint)
+    api.register_blueprint(TagBlueprint)
     return app
