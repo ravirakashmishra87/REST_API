@@ -3,7 +3,7 @@ from flask_smorest import Blueprint, abort
 from models import UserModel
 from models import BlocklistModel
 from db import db
-from resources.schemas import UserSchema
+from resources.schemas import UserSchema, UserLoginSchema
 from resources.schemas import BlocklistSchema
 from sqlalchemy.exc import SQLAlchemyError
 from passlib.hash import pbkdf2_sha256
@@ -38,7 +38,7 @@ class UserRegister(MethodView):
 
 @blp.route("/login")
 class UserLogin(MethodView):
-    @blp.arguments(UserSchema)
+    @blp.arguments(UserLoginSchema)
     def post(self, user_data):
         user = UserModel.query.filter(
             UserModel.username == user_data["username"]
