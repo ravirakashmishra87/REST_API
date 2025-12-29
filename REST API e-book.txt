@@ -6,3 +6,7 @@ https://rest-apis-flask.teclado.com/
 
 3. Run docker container for image image
     docker run -dp 5005:5000 -w /app -v "$(pwd):/app" flask-smorest-api
+
+4. Initialize database for migration
+    flask db init
+    
