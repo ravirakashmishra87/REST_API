@@ -44,3 +44,15 @@ class TagItemSchema(Schema):
     message = fields.Str()
     item = fields.Nested(ItemSchema)
     tag = fields.Nested(TagSchema)
+
+
+class UserSchema(Schema):
+    id = fields.Int(dump_only=True)
+    username = fields.Str(required=True)
+    password = fields.Str(required=True, load_only=True)
+    type = fields.Int(required=True, dump_only=True)
+
+
+class BlocklistSchema(Schema):
+    id = fields.Int(dump_only=True)
+    access_token = fields.Str(dump_only=True)
